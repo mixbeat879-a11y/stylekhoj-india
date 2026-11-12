@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StyleKhoj India | Premium Shopping</title>
+<meta name="description" content="Discover trending fashion, shoes, watches and lifestyle products at StyleKhoj India.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#faf9f6;color:#171717}
+header{background:#111;color:white;padding:18px 5%;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.logo{font-size:25px;font-weight:900;letter-spacing:1px}
+.logo span{color:#d5ad69}
+nav a{color:white;text-decoration:none;margin:0 9px;font-size:13px}
+.hero{background:linear-gradient(120deg,#151515,#454039);color:white;padding:65px 7%;text-align:center}
+.hero h1{font-size:clamp(32px,7vw,55px);margin-bottom:15px}
+.hero h1 span{color:#e3bd7d}
+.hero p{color:#ddd;margin-bottom:25px}
+.search{max-width:530px;margin:auto;display:flex;background:white;border-radius:30px;overflow:hidden}
+.search input{flex:1;min-width:0;padding:15px;border:0;outline:0;font-size:15px}
+.search button{border:0;background:#c49a5a;color:white;padding:0 22px;font-weight:bold}
+.section{padding:38px 5%}
+.section h2{text-align:center;font-size:27px;margin-bottom:25px}
+.categories{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.cat{border:1px solid #c9b38e;padding:11px 19px;border-radius:25px;background:white;cursor:pointer}
+.cat.active,.cat:hover{background:#171717;color:white}
+.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.product{background:white;border-radius:12px;overflow:hidden;box-shadow:0 3px 15px #0000000d}
+.product img{width:100%;height:180px;object-fit:cover;background:#eee}
+.info{padding:13px}
+.tag{font-size:10px;color:#a47b3c;font-weight:bold}
+.info h3{font-size:15px;margin:8px 0}
+.price{font-size:17px;font-weight:bold}
+.info p{font-size:12px;color:#777;margin:8px 0}
+.buy{display:block;text-align:center;text-decoration:none;background:#171717;color:white;padding:11px;border-radius:5px;margin-top:12px;font-size:13px}
+.buy:hover{background:#a47b3c}
+footer{background:#111;color:white;padding:35px 6%;text-align:center}
+footer p{color:#bbb;font-size:13px;margin-top:12px}
+@media(min-width:700px){.products{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}.product img{height:250px}}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">STYLE<span>KHOJ</span> INDIA</div>
+<nav>
+<a href="#home">Home</a>
+<a href="#categories">Categories</a>
+<a href="#products">Products</a>
+</nav>
+</header>
+
+<section class="hero" id="home">
+<h1>Discover Your <span>Perfect Style</span></h1>
+<p>Fashion. Lifestyle. Trends. All in One Place.</p>
+<div class="search">
+<input id="search" placeholder="Search fashion, shoes, watches...">
+<button onclick="showProducts()">SEARCH</button>
+</div>
+</section>
+
+<section class="section" id="categories">
+<h2>Explore Categories</h2>
+<div class="categories">
+<button class="cat active" onclick="filter('All',this)">All</button>
+<button class="cat" onclick="filter('Men',this)">Men</button>
+<button class="cat" onclick="filter('Women',this)">Women</button>
+<button class="cat" onclick="filter('Shoes',this)">Shoes</button>
+<button class="cat" onclick="filter('Watches',this)">Watches</button>
+<button class="cat" onclick="filter('Lifestyle',this)">Lifestyle</button>
+</div>
+</section>
+
+<section class="section" id="products">
+<h2>Trending Products</h2>
+<div class="products" id="productList">
+
+<div class="product" data-category="Men">
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600" alt="Men's T-shirt">
+<div class="info"><span class="tag">MEN'S FASHION</span>
+<h3>Premium Casual T-Shirt</h3><div class="price">₹599</div>
+<p>Everyday style collection</p>
+<a class="buy" target="_blank" href="https://www.amazon.in/s?k=mens+premium+tshirt">VIEW PRODUCT ↗</a></div>
+</div>
+
+<div class="product" data-category="Women">
+<img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600" alt="Women's fashion">
+<div class="info"><span class="tag">WOMEN'S FASHION</span>
+<h3>Women's Fashion Collection</h3><div class="price">₹999</div>
+<p>Explore trending styles</p>
+<a class="buy" target="_blank" href="https://www.amazon.in/s?k=womens+fashion">VIEW PRODUCT ↗</a></div>
+</div>
+
+<div class="product" data-category="Shoes">
+<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600" alt="Sports shoes">
+<div class="info"><span class="tag">FOOTWEAR</span>
+<h3>Stylish Sports Shoes</h3><div class="price">₹1,499</div>
+<p>Comfort meets style</p>
+<a class="buy" target="_blank" href="https://www.amazon.in/s?k=sports+shoes">VIEW PRODUCT ↗</a></div>
+</div>
+
+<div class="product" data-category="Watches">
+<img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=600" alt="Luxury watch">
+<div class="info"><span class="tag">ACCESSORIES</span>
+<h3>Classic Wrist Watch</h3><div class="price">₹1,299</div>
+<p>Timeless everyday design</p>
+<a class="buy" target="_blank" href="https://www.amazon.in/s?k=mens+watches">VIEW PRODUCT ↗</a></div>
+</div>
+
+<div class="product" data-category="Lifestyle">
+<img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600" alt="Handbag">
+<div class="info"><span class="tag">LIFESTYLE</span>
+<h3>Premium Style Handbag</h3><div class="price">₹899</div>
+<p>Discover elegant accessories</p>
+<a class="buy" target="_blank" href="https://www.amazon.in/s?k=handbags">VIEW PRODUCT ↗</a></div>
+</div>
+
+<div class="product" data-category="Lifestyle">
+<img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600" alt="Headphones">
+<div class="info"><span class="tag">GADGETS</span>
+<h3>Wireless Headphones</h3><div class="price">₹1,999</div>
+<p>Explore audio essentials</p>
+<a class="buy" target="_blank" href="https://www.amazon.in/s?k=wireless+headphones">VIEW PRODUCT ↗</a></div>
+</div>
+
+</div>
+<p id="empty" style="display:none;text-align:center;padding:25px">No products found.</p>
+</section>
+
+<footer>
+<div class="logo">STYLE<span>KHOJ</span> INDIA</div>
+<p>Discover More. Shop Smarter. Live Stylish.</p>
+<p>Fashion | Lifestyle | Trending Products</p>
+<p>Product prices shown are demo prices. Check seller website for actual prices and availability.</p>
+<p>© 2026 StyleKhoj India. All Rights Reserved.</p>
+</footer>
+
+<script>
+let currentCategory='All';
+
+function showProducts(){
+const q=document.getElementById('search').value.toLowerCase();
+let count=0;
+document.querySelectorAll('.product').forEach(p=>{
+const matchCategory=currentCategory==='All'||p.dataset.category===currentCategory;
+const matchText=p.innerText.toLowerCase().includes(q);
+p.style.display=matchCategory&&matchText?'block':'none';
+if(matchCategory&&matchText)count++;
+});
+document.getElementById('empty').style.display=count?'none':'block';
+}
+
+function filter(category,btn){
+currentCategory=category;
+document.querySelectorAll('.cat').forEach(b=>b.classList.remove('active'));
+btn.classList.add('active');
+showProducts();
+}
+document.getElementById('search').addEventListener('input',showProducts);
+</script>
+</body>
+</html>
