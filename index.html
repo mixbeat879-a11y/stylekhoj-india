@@ -4,160 +4,241 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>StyleKhoj India | Premium Shopping</title>
-<meta name="description" content="Discover trending fashion, shoes, watches and lifestyle products at StyleKhoj India.">
+<meta name="description" content="StyleKhoj India - Fashion, lifestyle and shopping marketplace.">
+<title>StyleKhoj India | Shop Your Style</title>
 <style>
+:root{--ink:#20202a;--pink:#ff477e;--purple:#7357e8;--yellow:#ffd45c;--bg:#fffaf6}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;background:#faf9f6;color:#171717}
-header{background:#111;color:white;padding:18px 5%;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.logo{font-size:25px;font-weight:900;letter-spacing:1px}
-.logo span{color:#d5ad69}
-nav a{color:white;text-decoration:none;margin:0 9px;font-size:13px}
-.hero{background:linear-gradient(120deg,#151515,#454039);color:white;padding:65px 7%;text-align:center}
-.hero h1{font-size:clamp(32px,7vw,55px);margin-bottom:15px}
-.hero h1 span{color:#e3bd7d}
-.hero p{color:#ddd;margin-bottom:25px}
-.search{max-width:530px;margin:auto;display:flex;background:white;border-radius:30px;overflow:hidden}
-.search input{flex:1;min-width:0;padding:15px;border:0;outline:0;font-size:15px}
-.search button{border:0;background:#c49a5a;color:white;padding:0 22px;font-weight:bold}
-.section{padding:38px 5%}
-.section h2{text-align:center;font-size:27px;margin-bottom:25px}
-.categories{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
-.cat{border:1px solid #c9b38e;padding:11px 19px;border-radius:25px;background:white;cursor:pointer}
-.cat.active,.cat:hover{background:#171717;color:white}
-.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.product{background:white;border-radius:12px;overflow:hidden;box-shadow:0 3px 15px #0000000d}
-.product img{width:100%;height:180px;object-fit:cover;background:#eee}
-.info{padding:13px}
-.tag{font-size:10px;color:#a47b3c;font-weight:bold}
-.info h3{font-size:15px;margin:8px 0}
-.price{font-size:17px;font-weight:bold}
-.info p{font-size:12px;color:#777;margin:8px 0}
-.buy{display:block;text-align:center;text-decoration:none;background:#171717;color:white;padding:11px;border-radius:5px;margin-top:12px;font-size:13px}
-.buy:hover{background:#a47b3c}
-footer{background:#111;color:white;padding:35px 6%;text-align:center}
-footer p{color:#bbb;font-size:13px;margin-top:12px}
-@media(min-width:700px){.products{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}.product img{height:250px}}
+body{font-family:Arial,sans-serif;background:var(--bg);color:var(--ink)}
+a{text-decoration:none;color:inherit}
+button,input,select{font:inherit}
+.top{background:#25213c;color:white;text-align:center;padding:9px;font-size:12px}
+header{background:white;padding:15px 5%;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;box-shadow:0 2px 12px #0000000b}
+.logo{font-size:23px;font-weight:900;letter-spacing:-1px}
+.logo span{color:var(--pink)}
+nav{display:flex;gap:17px;font-size:13px;font-weight:bold}
+nav a:hover{color:var(--pink)}
+.lang{border:1px solid #ddd;border-radius:20px;padding:8px;background:white}
+.hero{margin:18px auto;width:92%;max-width:1250px;min-height:300px;border-radius:22px;overflow:hidden;background:linear-gradient(110deg,#34245e,#9b4e9e 55%,#f28b83);color:white;display:flex;align-items:center;padding:35px 7%;position:relative}
+.hero:after{content:"";position:absolute;width:250px;height:250px;border:35px solid #ffffff22;border-radius:50%;right:7%;top:20px}
+.hero-content{max-width:520px;position:relative;z-index:1}
+.eyebrow{font-size:12px;letter-spacing:3px;font-weight:bold;color:#ffe08a}
+.hero h1{font-size:clamp(36px,7vw,62px);line-height:1.06;margin:14px 0}
+.hero p{line-height:1.6;color:#f4eafa;margin-bottom:23px}
+.primary{display:inline-block;background:var(--yellow);color:#28213c;padding:13px 22px;border:0;border-radius:25px;font-weight:bold;cursor:pointer}
+.search-wrap{width:92%;max-width:850px;margin:20px auto;display:flex;background:white;border:1px solid #eee;border-radius:14px;overflow:hidden}
+.search-wrap input{border:0;outline:0;padding:16px;flex:1;min-width:0}
+.search-wrap button{border:0;background:var(--pink);color:white;padding:0 20px;font-weight:bold}
+.section{width:92%;max-width:1250px;margin:38px auto}
+.heading{display:flex;justify-content:space-between;align-items:center;margin-bottom:19px;gap:10px}
+.heading h2{font-size:25px}
+.heading small{color:#888}
+.categories{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.category{border:0;border-radius:15px;padding:19px 8px;background:#f3eafa;text-align:center;cursor:pointer;font-weight:bold}
+.category:nth-child(2){background:#ffe8ed}
+.category:nth-child(3){background:#fff0c9}
+.category:nth-child(4){background:#e5f3ff}
+.category:nth-child(5){background:#e5f5e9}
+.category:nth-child(6){background:#fce6f3}
+.category:hover{outline:2px solid var(--purple)}
+.category span{display:block;font-size:27px;margin-bottom:7px}
+.filters{display:flex;gap:9px;overflow-x:auto;padding:3px 0 14px}
+.filter{white-space:nowrap;border:1px solid #ddd;background:white;border-radius:22px;padding:9px 16px;cursor:pointer}
+.filter.active{background:var(--ink);color:white;border-color:var(--ink)}
+.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.card{background:white;border-radius:15px;overflow:hidden;box-shadow:0 3px 15px #0000000c;position:relative}
+.card img{width:100%;height:155px;object-fit:cover;background:#eee;display:block}
+.card-body{padding:12px}
+.pill{display:inline-block;background:#f2eafa;color:#6543bd;border-radius:20px;padding:5px 8px;font-size:10px;font-weight:bold}
+.card h3{font-size:14px;margin:9px 0 6px;line-height:1.35}
+.card p{font-size:11px;color:#777;line-height:1.5;min-height:30px}
+.price{font-size:17px;font-weight:900;margin:9px 0}
+.old{font-size:11px;color:#999;text-decoration:line-through;font-weight:normal}
+.action{display:block;width:100%;border:0;background:var(--purple);color:white;padding:11px 5px;border-radius:8px;text-align:center;font-weight:bold;font-size:12px;cursor:pointer}
+.action.own{background:var(--pink)}
+.banner{background:#fff0d2;border-radius:18px;padding:25px;text-align:center}
+.banner h2{margin-bottom:8px}
+.banner p{font-size:13px;color:#666;margin-bottom:15px}
+.cart-button{position:relative;background:#25213c;color:white;border:0;border-radius:22px;padding:10px 14px;cursor:pointer}
+.count{background:var(--pink);border-radius:50%;padding:3px 6px;font-size:11px}
+.cart-panel{display:none;background:white;border:1px solid #ddd;border-radius:14px;padding:16px;margin-top:12px}
+.cart-panel.show{display:block}
+.cart-item{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid #eee;font-size:13px;gap:10px}
+.cart-item button{border:0;background:none;color:red}
+footer{background:#25213c;color:white;padding:32px 6%;text-align:center;margin-top:40px}
+footer p{font-size:12px;color:#ccc;margin-top:10px;line-height:1.7}
+.note{font-size:11px;color:#777;line-height:1.6;margin-top:18px}
+.empty{text-align:center;grid-column:1/-1;padding:35px;color:#777}
+@media(min-width:650px){
+ .products{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+ .categories{grid-template-columns:repeat(6,1fr)}
+ .card img{height:220px}
+}
+@media(min-width:950px){.products{grid-template-columns:repeat(4,minmax(0,1fr))}}
 </style>
 </head>
 <body>
 
+<div class="top" id="topline">WELCOME TO STYLEKHOJ INDIA • DISCOVER YOUR STYLE</div>
 <header>
-<div class="logo">STYLE<span>KHOJ</span> INDIA</div>
-<nav>
-<a href="#home">Home</a>
-<a href="#categories">Categories</a>
-<a href="#products">Products</a>
-</nav>
+ <a class="logo" href="#">STYLE<span>KHOJ</span> INDIA</a>
+ <nav>
+  <a href="#home" data-en="Home" data-hi="होम" data-mr="होम">Home</a>
+  <a href="#categories" data-en="Categories" data-hi="श्रेणियाँ" data-mr="श्रेणी">Categories</a>
+  <a href="#products" data-en="Shop" data-hi="शॉपिंग" data-mr="खरेदी">Shop</a>
+ </nav>
+ <div style="display:flex;gap:8px;align-items:center">
+  <select class="lang" id="language" onchange="changeLanguage()">
+   <option value="en">EN</option><option value="hi">हिंदी</option><option value="mr">मराठी</option>
+  </select>
+  <button class="cart-button" onclick="toggleCart()">Cart <span class="count" id="cartCount">0</span></button>
+ </div>
 </header>
 
 <section class="hero" id="home">
-<h1>Discover Your <span>Perfect Style</span></h1>
-<p>Fashion. Lifestyle. Trends. All in One Place.</p>
-<div class="search">
-<input id="search" placeholder="Search fashion, shoes, watches...">
-<button onclick="showProducts()">SEARCH</button>
-</div>
+ <div class="hero-content">
+  <div class="eyebrow">STYLE • QUALITY • DISCOVERY</div>
+  <h1 id="heroTitle">Find Your<br>New Favourite.</h1>
+  <p id="heroText">Explore fashion, footwear, accessories and everyday lifestyle finds — all in one place.</p>
+  <a href="#products" class="primary" id="shopNow">EXPLORE PRODUCTS →</a>
+ </div>
 </section>
 
-<section class="section" id="categories">
-<h2>Explore Categories</h2>
-<div class="categories">
-<button class="cat active" onclick="filter('All',this)">All</button>
-<button class="cat" onclick="filter('Men',this)">Men</button>
-<button class="cat" onclick="filter('Women',this)">Women</button>
-<button class="cat" onclick="filter('Shoes',this)">Shoes</button>
-<button class="cat" onclick="filter('Watches',this)">Watches</button>
-<button class="cat" onclick="filter('Lifestyle',this)">Lifestyle</button>
+<div class="search-wrap">
+ <input id="search" type="search" placeholder="Search products, fashion, shoes...">
+ <button onclick="renderProducts()">SEARCH</button>
 </div>
+
+<section class="section" id="categories">
+ <div class="heading"><h2 id="catTitle">Shop by Category</h2></div>
+ <div class="categories">
+  <button class="category" onclick="setCategory('Men')"><span>👔</span>Men</button>
+  <button class="category" onclick="setCategory('Women')"><span>👗</span>Women</button>
+  <button class="category" onclick="setCategory('Shoes')"><span>👟</span>Shoes</button>
+  <button class="category" onclick="setCategory('Watches')"><span>⌚</span>Watches</button>
+  <button class="category" onclick="setCategory('Beauty')"><span>💄</span>Beauty</button>
+  <button class="category" onclick="setCategory('Lifestyle')"><span>🎧</span>Lifestyle</button>
+ </div>
 </section>
 
 <section class="section" id="products">
-<h2>Trending Products</h2>
-<div class="products" id="productList">
+ <div class="heading">
+  <h2 id="productTitle">Popular Finds</h2>
+  <small>Curated for your style</small>
+ </div>
+ <div class="filters">
+  <button class="filter active" onclick="setCategory('All',this)">All</button>
+  <button class="filter" onclick="setCategory('Men',this)">Men</button>
+  <button class="filter" onclick="setCategory('Women',this)">Women</button>
+  <button class="filter" onclick="setCategory('Shoes',this)">Shoes</button>
+  <button class="filter" onclick="setCategory('Watches',this)">Watches</button>
+  <button class="filter" onclick="setCategory('Beauty',this)">Beauty</button>
+  <button class="filter" onclick="setCategory('Lifestyle',this)">Lifestyle</button>
+ </div>
+ <div class="products" id="productGrid"></div>
+ <div class="cart-panel" id="cartPanel">
+  <h3>Your Own Store Cart</h3>
+  <div id="cartItems"></div>
+  <p style="margin-top:12px;font-weight:bold" id="cartTotal">Total: ₹0</p>
+  <p class="note">This is a demo cart. Online payment and order processing are not connected yet.</p>
+ </div>
+</section>
 
-<div class="product" data-category="Men">
-<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600" alt="Men's T-shirt">
-<div class="info"><span class="tag">MEN'S FASHION</span>
-<h3>Premium Casual T-Shirt</h3><div class="price">₹599</div>
-<p>Everyday style collection</p>
-<a class="buy" target="_blank" href="https://www.amazon.in/s?k=mens+premium+tshirt">VIEW PRODUCT ↗</a></div>
-</div>
-
-<div class="product" data-category="Women">
-<img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600" alt="Women's fashion">
-<div class="info"><span class="tag">WOMEN'S FASHION</span>
-<h3>Women's Fashion Collection</h3><div class="price">₹999</div>
-<p>Explore trending styles</p>
-<a class="buy" target="_blank" href="https://www.amazon.in/s?k=womens+fashion">VIEW PRODUCT ↗</a></div>
-</div>
-
-<div class="product" data-category="Shoes">
-<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600" alt="Sports shoes">
-<div class="info"><span class="tag">FOOTWEAR</span>
-<h3>Stylish Sports Shoes</h3><div class="price">₹1,499</div>
-<p>Comfort meets style</p>
-<a class="buy" target="_blank" href="https://www.amazon.in/s?k=sports+shoes">VIEW PRODUCT ↗</a></div>
-</div>
-
-<div class="product" data-category="Watches">
-<img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=600" alt="Luxury watch">
-<div class="info"><span class="tag">ACCESSORIES</span>
-<h3>Classic Wrist Watch</h3><div class="price">₹1,299</div>
-<p>Timeless everyday design</p>
-<a class="buy" target="_blank" href="https://www.amazon.in/s?k=mens+watches">VIEW PRODUCT ↗</a></div>
-</div>
-
-<div class="product" data-category="Lifestyle">
-<img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600" alt="Handbag">
-<div class="info"><span class="tag">LIFESTYLE</span>
-<h3>Premium Style Handbag</h3><div class="price">₹899</div>
-<p>Discover elegant accessories</p>
-<a class="buy" target="_blank" href="https://www.amazon.in/s?k=handbags">VIEW PRODUCT ↗</a></div>
-</div>
-
-<div class="product" data-category="Lifestyle">
-<img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600" alt="Headphones">
-<div class="info"><span class="tag">GADGETS</span>
-<h3>Wireless Headphones</h3><div class="price">₹1,999</div>
-<p>Explore audio essentials</p>
-<a class="buy" target="_blank" href="https://www.amazon.in/s?k=wireless+headphones">VIEW PRODUCT ↗</a></div>
-</div>
-
-</div>
-<p id="empty" style="display:none;text-align:center;padding:25px">No products found.</p>
+<section class="section">
+ <div class="banner">
+  <h2>Something for Every Style ✨</h2>
+  <p>Discover new favourites across fashion, beauty and lifestyle.</p>
+  <a class="primary" href="#products">START EXPLORING</a>
+ </div>
+ <p class="note">Disclosure: Some product links may be affiliate links. We may earn a commission if you purchase through an eligible link, at no extra cost to you. Product prices and availability must be checked on the seller's website.</p>
 </section>
 
 <footer>
-<div class="logo">STYLE<span>KHOJ</span> INDIA</div>
-<p>Discover More. Shop Smarter. Live Stylish.</p>
-<p>Fashion | Lifestyle | Trending Products</p>
-<p>Product prices shown are demo prices. Check seller website for actual prices and availability.</p>
-<p>© 2026 StyleKhoj India. All Rights Reserved.</p>
+ <div class="logo">STYLE<span>KHOJ</span> INDIA</div>
+ <p>Discover More. Shop Smarter. Live Stylish.</p>
+ <p>Fashion | Lifestyle | Trends</p>
+ <p>Contact: Add your business email here</p>
+ <p>© 2026 StyleKhoj India. All Rights Reserved.</p>
 </footer>
 
 <script>
-let currentCategory='All';
+const products=[
+ {id:1,name:"Classic Men's T-Shirt",cat:"Men",price:599,type:"affiliate",desc:"Everyday casual fashion.",img:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=700",url:"https://www.amazon.in/s?k=mens+tshirt"},
+ {id:2,name:"Women's Fashion Outfit",cat:"Women",price:999,type:"affiliate",desc:"Explore stylish outfit ideas.",img:"https://images.unsplash.com/photo-1483985988355-763728e1935b?w=700",url:"https://www.amazon.in/s?k=womens+fashion"},
+ {id:3,name:"Sport Sneakers",cat:"Shoes",price:1499,type:"affiliate",desc:"Comfort for everyday movement.",img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=700",url:"https://www.amazon.in/s?k=sports+shoes"},
+ {id:4,name:"Classic Wrist Watch",cat:"Watches",price:1299,type:"affiliate",desc:"A timeless accessory.",img:"https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=700",url:"https://www.amazon.in/s?k=wrist+watches"},
+ {id:5,name:"Elegant Handbag",cat:"Women",price:899,type:"affiliate",desc:"A stylish everyday companion.",img:"https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=700",url:"https://www.amazon.in/s?k=handbags"},
+ {id:6,name:"Wireless Headphones",cat:"Lifestyle",price:1999,type:"affiliate",desc:"Explore audio essentials.",img:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=700",url:"https://www.amazon.in/s?k=wireless+headphones"},
+ {id:7,name:"Beauty Essentials",cat:"Beauty",price:499,type:"affiliate",desc:"Discover beauty favourites.",img:"https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=700",url:"https://www.amazon.in/s?k=beauty+products"},
+ {id:8,name:"Your Brand Product",cat:"Lifestyle",price:799,type:"own",desc:"Demo listing — replace with your own product.",img:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=700",url:""}
+];
+let category="All";
+let cart=[];
 
-function showProducts(){
-const q=document.getElementById('search').value.toLowerCase();
-let count=0;
-document.querySelectorAll('.product').forEach(p=>{
-const matchCategory=currentCategory==='All'||p.dataset.category===currentCategory;
-const matchText=p.innerText.toLowerCase().includes(q);
-p.style.display=matchCategory&&matchText?'block':'none';
-if(matchCategory&&matchText)count++;
-});
-document.getElementById('empty').style.display=count?'none':'block';
+function money(n){return "₹"+n.toLocaleString("en-IN")}
+function renderProducts(){
+ const q=document.getElementById("search").value.toLowerCase();
+ const list=products.filter(p=>(category==="All"||p.cat===category)&&
+ (p.name+" "+p.cat+" "+p.desc).toLowerCase().includes(q));
+ const grid=document.getElementById("productGrid");
+ if(!list.length){grid.innerHTML='<div class="empty">No matching products found. Try another search.</div>';return}
+ grid.innerHTML=list.map(p=>`
+ <article class="card">
+  <img src="${p.img}" alt="${p.name}" loading="lazy">
+  <div class="card-body">
+   <span class="pill">${p.type==="own"?"OUR STORE":"AFFILIATE FIND"} • ${p.cat.toUpperCase()}</span>
+   <h3>${p.name}</h3>
+   <p>${p.desc}</p>
+   <div class="price">${money(p.price)} <span class="old">Demo price</span></div>
+   ${p.type==="own"
+   ?`<button class="action own" onclick="addToCart(${p.id})">ADD TO CART</button>`
+   :`<a class="action" href="${p.url}" target="_blank" rel="noopener">VIEW ON SELLER SITE ↗</a>`}
+  </div>
+ </article>`).join("");
 }
+function setCategory(c,btn){
+ category=c;
+ document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));
+ if(btn)btn.classList.add("active");
+ else document.querySelectorAll(".filter").forEach(x=>{if(x.textContent===c)x.classList.add("active")});
+ renderProducts();
+ document.getElementById("products").scrollIntoView({behavior:"smooth"});
+}
+function addToCart(id){
+ const p=products.find(x=>x.id===id);
+ const item=cart.find(x=>x.id===id);
+ if(item)item.qty++;else cart.push({...p,qty:1});
+ updateCart();
+ document.getElementById("cartPanel").classList.add("show");
+}
+function updateCart(){
+ document.getElementById("cartCount").textContent=cart.reduce((n,p)=>n+p.qty,0);
+ document.getElementById("cartItems").innerHTML=cart.length?cart.map(p=>`
+ <div class="cart-item"><span>${p.name} × ${p.qty}</span>
+ <span>${money(p.price*p.qty)} <button onclick="removeItem(${p.id})">✕</button></span></div>`).join(""):"Your cart is empty.";
+ document.getElementById("cartTotal").textContent="Total: "+money(cart.reduce((n,p)=>n+p.price*p.qty,0));
+}
+function removeItem(id){cart=cart.filter(p=>p.id!==id);updateCart()}
+function toggleCart(){document.getElementById("cartPanel").classList.toggle("show")}
+document.getElementById("search").addEventListener("input",renderProducts);
 
-function filter(category,btn){
-currentCategory=category;
-document.querySelectorAll('.cat').forEach(b=>b.classList.remove('active'));
-btn.classList.add('active');
-showProducts();
+const translations={
+ en:{top:"WELCOME TO STYLEKHOJ INDIA • DISCOVER YOUR STYLE",hero:"Find Your<br>New Favourite.",desc:"Explore fashion, footwear, accessories and everyday lifestyle finds — all in one place.",cat:"Shop by Category",products:"Popular Finds",shop:"EXPLORE PRODUCTS →"},
+ hi:{top:"STYLEKHOJ INDIA में आपका स्वागत है • अपना स्टाइल खोजें",hero:"अपना पसंदीदा<br>स्टाइल खोजें।",desc:"फैशन, जूते, एक्सेसरीज़ और लाइफस्टाइल प्रोडक्ट्स एक ही जगह।",cat:"श्रेणी के अनुसार खरीदें",products:"लोकप्रिय प्रोडक्ट्स",shop:"प्रोडक्ट्स देखें →"},
+ mr:{top:"STYLEKHOJ INDIA मध्ये आपले स्वागत • आपली स्टाइल शोधा",hero:"तुमची आवडती<br>स्टाइल शोधा.",desc:"फॅशन, शूज, अ‍ॅक्सेसरीज आणि लाइफस्टाइल उत्पादने एकाच ठिकाणी.",cat:"श्रेणीनुसार खरेदी",products:"लोकप्रिय उत्पादने",shop:"उत्पादने पाहा →"}
+};
+function changeLanguage(){
+ const t=translations[document.getElementById("language").value];
+ document.getElementById("topline").textContent=t.top;
+ document.getElementById("heroTitle").innerHTML=t.hero;
+ document.getElementById("heroText").textContent=t.desc;
+ document.getElementById("catTitle").textContent=t.cat;
+ document.getElementById("productTitle").textContent=t.products;
+ document.getElementById("shopNow").textContent=t.shop;
 }
-document.getElementById('search').addEventListener('input',showProducts);
+renderProducts();
+updateCart();
 </script>
 </body>
-</html>
+  </html>
+  
